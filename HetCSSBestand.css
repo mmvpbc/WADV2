@@ -1,0 +1,26 @@
+.bg{
+    margin: auto;
+    width: 30%;
+    border: 3px solid black;
+    padding: 10px;
+    margin-top: auto;
+    background-color: gray;
+    top: 200px;
+    position: relative;
+    background-blend-mode: color;
+}
+
+
+.nii{
+    margin: 0px;
+    margin-bottom: 3px;
+}
+
+
+input {
+    margin-bottom: 5px;
+}
+
+body {
+    background-image: url("images/blacklines.jpg");
+}
