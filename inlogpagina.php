@@ -6,13 +6,14 @@ if (isset ($_POST['inloggen'])) {
                                             FILTER_SANITIZE_STRING);
     $wachtwoord = sha1($_POST['wachtwoord']);
     $query = $db->prepare("SELECT * FROM profiel
-                                        WHERE naam = :naam
-                                        AND wachtwoord = :wachtwoord");
+                                        WHERE naam = :gebruiker
+                                        AND wachtwoord = :ww");
     $query->bindParam("gebruiker", $naam);
     $query->bindParam("ww", $wachtwoord);
     $query->execute();
     if ($query->rowCount() == 1) {
-        echo "Juiste gegevens!";
+//        header("location: ");
+        echo "het is gelukt!";
     } else {
         echo "Onjuiste Gegevens!";
     }
@@ -20,15 +21,15 @@ if (isset ($_POST['inloggen'])) {
     }
 ?>
 <body>
-<link rel="stylesheet" href="registratiepagina.css" type="text/css">
+<link rel="stylesheet" href="HetCSSBestand.css" type="text/css">
 <div class="bg">
 <form method="post" action="">
     <p class="nii">Aanmelden: </p>
     <label>Naam: </label>
-    <input type="text" name="username"><br>
+    <input type="text" name="naam"><br>
 
     <label>Wachtwoord: </label>
-    <input type="text" name="password"><br>
+    <input type="password" name="wachtwoord"><br>
 
     <p><input type="submit" name="inloggen" value="Inloggen"> <a href="registratiepagina.php">registreren</a></p>
 
